@@ -176,6 +176,11 @@ body {
     border-radius: 15px;
     box-shadow:  5px 5px 10px var(--dark-blue);
     text-align: center;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    border: 3px solid rgba(3, 3, 3, 1);
 }
 
 #icon, #time {
