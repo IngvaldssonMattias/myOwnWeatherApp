@@ -1,24 +1,41 @@
+
 import { getWeatherFromCity } from "./services/services.js";
 
 const searchButton = document.getElementById('search-button');
 const searchField = document.getElementById('search-field');
-const weatherResult = document.getElementById('display-text');
+const tempElement = document.getElementById('temp');
+const unitElement = document.getElementById('unit');
+const toggleSwitch = document.getElementById('unitSwitch');
+let currentTempCelsius = null; // sparar den temperatur som API:et returnerar i Celsius
 
+// Funktion för Celsius → Fahrenheit
+function celsiusToFahrenheit(celsius) {
+    return (celsius * 9/5 + 32).toFixed(1);
+}
+
+// När man klickar på sökknappen
 searchButton.addEventListener('click', async () => {
-
     const city = searchField.value;
     const weather = await getWeatherFromCity(city);
 
-    document.getElementById("temp").textContent = weather.temperature;
-    document.getElementById("unit").textContent = "°C";
+    currentTempCelsius = weather.temperature; // spara i Celsius
+    tempElement.textContent = currentTempCelsius;
+    unitElement.textContent = "°C";
     document.getElementById("weather").textContent = weather.weather;
     document.getElementById("location").textContent = weather.city;
-  
+});
 
+// Lyssna på toggle-switch
+toggleSwitch.addEventListener('change', () => {
+    if (currentTempCelsius === null) return; // inga temperaturdata än
 
-    // weatherResult.innerHTML = `
-    //     <p>Today at ${weather.time} ${weather.timeZone} in 
-    //     ${weather.city[0].toUpperCase() + weather.city.slice(1).toLowerCase()} 
-    //     the temperature is ${weather.temperature} degrees celsius 
-    //     and the weather is ${weather.weather.toLowerCase()}.</p>`;
+    if (toggleSwitch.checked) {
+        // Byt till Fahrenheit
+        tempElement.textContent = celsiusToFahrenheit(currentTempCelsius);
+        unitElement.textContent = "°F";
+    } else {
+        // Byt tillbaka till Celsius
+        tempElement.textContent = currentTempCelsius;
+        unitElement.textContent = "°C";
+    }
 });
