@@ -5,6 +5,15 @@
   --grey: #efebeb;
 }
 
+/* Darkmode Variabler */
+[data-theme="dark"] {
+  --background: #de6836;
+  --light-grey: #161616;
+--dark-blue: #F1C0AC;
+--grey: #101414;
+}
+
+
 body {
   padding: 0;
   margin: 0;
@@ -35,9 +44,10 @@ body {
   background: var(--background);
   color: var(--light-grey);
   width: 100%;
-  padding: 0 12px;
+  padding: 0 12px 0 10px; /* topp, höger, botten, vänster */
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
+
 
 .header_brand {
   justify-self: start;
@@ -50,17 +60,34 @@ body {
   color: #fff;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
   white-space: nowrap;
-}
+  margin-left: 10px;
 
+}
+.themeToggle {
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+ justify-self: start;
+ margin-left: 10px;
+ transition: transform 0.3s ease;
+}
+.themeToggle.rotate {
+ transform: rotate(360deg);
+}
 .header_unit {
-  align-self: center;
-  justify-self: end;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding-right: 12px;
+  gap: 5px;
+  justify-self: end;
+  
 }
 
+.sun-icon {
+  width: 30px;
+  height: 30px;
+  
+}
 .unit-label {
   font-family: "Inter", sans-serif;
   font-size: 0.75rem;
@@ -68,8 +95,9 @@ body {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: #fff;
-  opacity: 0.8;
+  opacity: 0.8; 
 }
+
 .unit-switch_input {
   position: absolute;
   opacity: 0;
@@ -105,22 +133,24 @@ body {
     grid-template-columns: 1fr;
     grid-template-rows: 44px 44px;
     height: auto;
-    padding: 4px 10px;
+    padding: 4px 10px; 
   }
   .header_brand {
     grid-column: 1/2;
     grid-row: 1/2;
-    justify-self: center;
+    justify-self: start; 
     align-self: center;
     font-size: 0.9rem;
     letter-spacing: 0.05em;
+    margin-left: 10px; 
   }
   .header_unit {
     grid-column: 1/2;
     grid-row: 2/3;
-    justify-self: center;
+    justify-self: start; 
     align-self: center;
     gap: 8px;
+    margin-left: 10px; 
   }
   .unit-label {
     font-size: 0.7rem;
@@ -149,7 +179,12 @@ body {
   .sidebar {
     position: relative;
     width: 90%;
-    margin-top: 20px;
+    max-width: 400px;
+    margin: 20px auto 0;
+    padding: 15px;
+    top: auto;
+    right: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   }
 }
 
@@ -322,4 +357,12 @@ body {
   text-align: center;
   border-radius: 50px;
   margin-top: 5px;
+}
+
+  body,
+  .site-header,
+  .sidebar,
+  #weather-container,
+  .weather-boxes {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }

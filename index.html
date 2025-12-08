@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -32,19 +32,21 @@
       <div class="header_brand">VAD BLIR DET FÖR VÄDER?</div>
 
       <div class="header_unit">
-        <span class="unit-label left">CELSIUS</span>
+    <button class="themeToggle">
+      <img src="./images/sun.svg" class="sun-icon" alt="solikon">
+    </button>
+    <span class="unit-label left">CELSIUS</span>
 
-        <input
-          type="checkbox"
-          id="unitSwitch"
-          class="unit-switch_input"
-          aria-label="Byt mellan Celsius och Fahrenheit"
-        />
+    <input
+      type="checkbox"
+      id="unitSwitch"
+      class="unit-switch_input"
+      aria-label="Byt mellan Celsius och Fahrenheit"
+    />
+    <label for="unitSwitch" class="unit-switch_track"></label>
 
-        <label for="unitSwitch" class="unit-switch_track"></label>
-
-        <span class="unit-label right">FAHRENHEIT</span>
-      </div>
+    <span class="unit-label right">FAHRENHEIT</span>
+  </div>
     </header>
 
     <main class="main-layout">
