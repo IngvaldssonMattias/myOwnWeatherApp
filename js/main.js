@@ -1,7 +1,12 @@
 
 import { getWeatherFromCity } from "./services/services.js";
+import { saveSearch } from "./utils/utils.js";
+import { renderHistory } from "./components/component.js";
 
-const searchButton = document.getElementById('search-button');
+
+
+
+const searchButton = document.getElementById('field-button');
 const searchField = document.getElementById('search-field');
 const tempElement = document.getElementById('temp');
 const unitElement = document.getElementById('unit');
@@ -18,11 +23,16 @@ searchButton.addEventListener('click', async () => {
     const city = searchField.value;
     const weather = await getWeatherFromCity(city);
 
-    currentTempCelsius = weather.temperature; // spara i Celsius
+    currentTempCelsius = weather.temperature;
     tempElement.textContent = currentTempCelsius;
     unitElement.textContent = "°C";
     document.getElementById("weather").textContent = weather.weather;
     document.getElementById("location").textContent = weather.city;
+
+    // Spara stad + temperatur korrekt
+    saveSearch(city, weather.temperature);
+    renderHistory();
+
 });
 
 // Lyssna på toggle-switch
