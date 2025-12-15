@@ -189,7 +189,7 @@ body {
     gap: 20px;
   }
   .cloud-container {
-    width: 80vw;
+    max-width: 320px;
   }
   .search input {
     width: 80%;
