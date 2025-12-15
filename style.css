@@ -1,19 +1,32 @@
 :root {
-  --background: #2197c9;
-  --light-grey: #d9d9d9;
-  --dark-blue: #0e3f53;
-  --grey: #efebeb;
+  /* Light mode */
+  --background: #1f8dbd;       /* huvudbakgrund */
+  --light-grey: #e2e2e2;       /* kort / inputs */
+  --grey: #f1f1f1;             /* switches / secondary */
+  
+  --text-color: #0b3445;       /* huvudtext / ikoner */
+  --muted-text: #4b6b78;       /* sekundär text */
+  
+  --icon-color: #0b3445;       /* ikoner */
+  --border-color: rgba(3, 3, 3, 0.8);  /* cards/border */
+  --shadow-color: rgba(0, 0, 0, 0.2);
 }
 
 /* Darkmode Variabler */
 [data-theme="dark"] {
-  --background: #de6836;
-  --light-grey: #161616;
---dark-blue: #F1C0AC;
---grey: #101414;
+  --background: #121212;       /* huvudbakgrund */
+  --light-grey: rgba(30,30,30,0.9); /* kort / inputs */
+  --grey: #2a2a2a;             /* switches / secondary */
+  
+  --text-color: #e6e6e6;       /* huvudtext / ikoner */
+  --muted-text: #b0b0b0;       /* sekundär text */
+  
+  --icon-color: #b8b8b8;       /* ikoner */
+  --border-color: rgba(60,60,60,0.8); /* cards/border */
+  --shadow-color: rgba(0,0,0,0.6);
 }
 
-
+/* Global */
 body {
   padding: 0;
   margin: 0;
@@ -24,7 +37,10 @@ body {
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica", Arial, sans-serif;
   background-color: var(--background);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -37,17 +53,17 @@ body {
   border: 0;
 }
 
+/* Header */
 .site-header {
   display: grid;
-  grid-template-columns: 1fr auto; /* vänster = brand, höger = unit */
+  grid-template-columns: 1fr auto; 
   align-items: center;
   background: var(--background);
   color: var(--light-grey);
   width: 100%;
-  padding: 0 12px 0 10px; /* topp, höger, botten, vänster */
+  padding: 0 12px 0 10px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
-
 
 .header_brand {
   justify-self: start;
@@ -61,33 +77,33 @@ body {
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
   white-space: nowrap;
   margin-left: 10px;
-
 }
+
 .themeToggle {
   border-radius: 10px;
   border: none;
   cursor: pointer;
   position: relative;
- justify-self: start;
- margin-left: 10px;
- transition: transform 0.3s ease;
+  justify-self: start;
+  margin-left: 10px;
+  transition: transform 0.3s ease;
 }
 .themeToggle.rotate {
- transform: rotate(360deg);
+  transform: rotate(360deg);
 }
+
 .header_unit {
   display: inline-flex;
   align-items: center;
   gap: 5px;
   justify-self: end;
-  
 }
 
 .sun-icon {
   width: 30px;
   height: 30px;
-  
 }
+
 .unit-label {
   font-family: "Inter", sans-serif;
   font-size: 0.75rem;
@@ -95,7 +111,7 @@ body {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: #fff;
-  opacity: 0.8; 
+  opacity: 0.8;
 }
 
 .unit-switch_input {
@@ -103,6 +119,7 @@ body {
   opacity: 0;
   pointer-events: none;
 }
+
 .unit-switch_track {
   width: 48px;
   height: 24px;
@@ -120,37 +137,38 @@ body {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: var(--dark-blue);
+  background: var(--text-color);
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
   transition: transform 160ms ease;
 }
 .unit-switch_input:checked + .unit-switch_track::after {
   transform: translateX(24px);
 }
+
 /* Mobil */
 @media (max-width: 640px) {
   .site-header {
     grid-template-columns: 1fr;
     grid-template-rows: 44px 44px;
     height: auto;
-    padding: 4px 10px; 
+    padding: 4px 10px;
   }
   .header_brand {
     grid-column: 1/2;
     grid-row: 1/2;
-    justify-self: start; 
+    justify-self: start;
     align-self: center;
     font-size: 0.9rem;
     letter-spacing: 0.05em;
-    margin-left: 10px; 
+    margin-left: 10px;
   }
   .header_unit {
     grid-column: 1/2;
     grid-row: 2/3;
-    justify-self: start; 
+    justify-self: start;
     align-self: center;
     gap: 8px;
-    margin-left: 10px; 
+    margin-left: 10px;
   }
   .unit-label {
     font-size: 0.7rem;
@@ -189,7 +207,6 @@ body {
 }
 
 /* temperature boxes */
-
 #weather-container {
   gap: 50px;
   display: flex;
@@ -197,30 +214,36 @@ body {
   align-items: center;
   margin-top: 120px;
 }
+
 #weather-container > div {
   background-color: var(--light-grey);
-  color: var(--dark-blue);
+  color: var(--text-color);
   max-width: 120px;
   height: 120px;
   padding: 10px 20px 10px 20px;
-  border: solid 20px var(--dark-blue);
-  border-radius: 15px;
-  box-shadow: 5px 5px 10px var(--dark-blue);
-  text-align: center;
+  border: 3px solid var(--border-color);
   border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(0px);
-  -webkit-backdrop-filter: blur(0px);
-  border: 3px solid rgba(3, 3, 3, 1);
+  box-shadow: 0 4px 30px var(--shadow-color);
+  text-align: center;
+}
+#icon {
+  font-size: 5em;       /* gör emoji stor */
+  display: inline-block; 
+  vertical-align: middle;
+}
+
+#weather {
+  font-size: 1rem;      /* vanlig textstorlek */
+  margin-top: 0.2em;
 }
 
 #icon,
 #time {
   display: block;
+  
 }
 
 /* Box decoration */
-
 .weather-boxes > p,
 #icon,
 #time {
@@ -245,7 +268,7 @@ body {
   bottom: 0;
   width: 100%;
   height: 1px;
-  background-color: var(--dark-blue);
+  background-color: var(--text-color);
 }
 .biggerfont {
   font-size: 1.5rem;
@@ -269,7 +292,7 @@ body {
 }
 .cloud-shape {
   fill: white;
-  stroke: var(--dark-blue);
+  stroke: var(--light-grey);
   stroke-width: 4px;
   filter: drop-shadow(0 7px 4px rgba(0, 0, 0, 0.5));
 }
@@ -278,17 +301,29 @@ body {
   z-index: 2;
   text-align: center;
 }
+
+/* Default (light mode) */
+.search i.fa-magnifying-glass {
+  color: var(--icon-color);
+}
+
+/* Dark mode */
+[data-theme="dark"] .search i.fa-magnifying-glass {
+  color: #000000 !important;       /* svart ikon */
+}
+
 .search input {
   background-color: var(--light-grey);
   border: none;
   border-radius: 10px;
   padding: 1.5vw;
+  color: var(--text-color);
 }
 .search input::placeholder {
-  color: var(--dark-blue);
+  color: var(--muted-text);
 }
 .search i {
-  color: var(--dark-blue);
+  color: var(--icon-color);
   padding-left: 2%;
   font-size: 1.5vw;
 }
@@ -296,17 +331,7 @@ body {
   cursor: pointer;
 }
 
-/*-----END-----CLOUD & SEARCH*/
-
-/*-----START-----DISPLAY TEST*/
-.display-text p {
-  color: white;
-  font-size: clamp(14px, 1.8vw, 24px);
-  font-weight: 200;
-  display: none;
-}
-
-/* Sidebar-Container*/
+/* Sidebar-Container */
 .sidebar {
   position: absolute;
   top: 50px;
@@ -316,22 +341,22 @@ body {
   padding: 15px;
   display: grid;
   gap: 10px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--light-grey);
   backdrop-filter: blur(10px);
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0.8px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0.8px 30px var(--shadow-color);
   z-index: 10;
 }
 
 /* History-Card */
 .sidebar .history-item {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(40,40,40,0.7);
   border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255,255,255,0.15);
   padding: 12px;
   font-weight: bold;
-  color: #fff;
+  color: var(--text-color);
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
   text-align: center;
@@ -340,29 +365,41 @@ body {
 /* Hover-Effect On Card */
 .sidebar .history-item:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 20px var(--shadow-color);
 }
 
 /* Rubrik Överst */
 .sidebar h3 {
   grid-column: 1 / -1;
   text-align: center;
-  color: #fff;
+  color: var(--text-color);
   margin-bottom: 10px;
 }
 
-/*-----END-----DISPLAY TEXT*/
+/* Display test */
+.display-text p {
+  color: var(--text-color);
+  font-size: clamp(14px, 1.8vw, 24px);
+  font-weight: 200;
+  display: none;
+}
 
+/* Field button */
 #field-button {
   text-align: center;
   border-radius: 50px;
   margin-top: 5px;
 }
+#field-button i {
+  color: var(--icon-color);
+}
 
-  body,
-  .site-header,
-  .sidebar,
-  #weather-container,
-  .weather-boxes {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+/* Transitions for theme change */
+body,
+.site-header,
+.sidebar,
+#weather-container,
+.weather-boxes {
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease, box-shadow 0.3s ease;
 }
