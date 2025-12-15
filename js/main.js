@@ -1,13 +1,13 @@
 import { getWeatherFromCity } from "./services/services.js";
 import { saveSearch } from "./utils/utils.js";
-import { renderHistory } from "./components/component.js";
+import { renderClock, renderHistory } from "./components/component.js";
 
 const searchButton = document.getElementById("field-button");
 const searchField = document.getElementById("search-field");
 const tempElement = document.getElementById("temp");
 const unitElement = document.getElementById("unit");
 const toggleSwitch = document.getElementById("unitSwitch");
-const themeToggleButton = document.querySelector(".themeToggle")
+const themeToggleButton = document.querySelector(".themeToggle");
 const root = document.documentElement;
 
 let currentTempCelsius = null; // sparar den temperatur som API:et returnerar i Celsius
@@ -19,7 +19,9 @@ function celsiusToFahrenheit(celsius) {
 
 // När man klickar på sökknappen
 searchButton.addEventListener("click", async () => {
-  const city = searchField.value;
+  const city = searchField.value.trim();
+  if (!city) return; // gör inget om fältet är tomt
+
   const weather = await getWeatherFromCity(city);
 
   currentTempCelsius = weather.temperature;
@@ -31,6 +33,23 @@ searchButton.addEventListener("click", async () => {
   // Spara stad + temperatur korrekt
   saveSearch(city, weather.temperature);
   renderHistory();
+  renderClock();
+
+  // Rensa inputfält och återställ placeholder
+  searchField.value = "";
+  searchField.placeholder = "Sök efter en stad";
+});
+
+// Ta bort placeholder när man fokuserar i fältet
+searchField.addEventListener("focus", () => {
+  searchField.placeholder = "";
+});
+
+// Återställ placeholder om fältet är tomt när man lämnar fältet
+searchField.addEventListener("blur", () => {
+  if (searchField.value.trim() === "") {
+    searchField.placeholder = "Sök efter en stad";
+  }
 });
 
 // Lyssna på toggle-switch
@@ -48,10 +67,7 @@ toggleSwitch.addEventListener("change", () => {
   }
 });
 
-
-
 const savedTheme = localStorage.getItem("preferred-theme");
-
 
 if (savedTheme === "dark") {
   root.setAttribute("data-theme", "dark");
@@ -59,9 +75,7 @@ if (savedTheme === "dark") {
   root.removeAttribute("data-theme");
 }
 
-
 updateButtonLabel();
-
 
 function isDarkMode() {
   return root.getAttribute("data-theme") === "dark";
@@ -74,7 +88,6 @@ function updateButtonLabel() {
     themeToggleButton.textContent = " 🌙 ";
   }
 }
-
 
 themeToggleButton.addEventListener("click", () => {
   const nextTheme = isDarkMode() ? "light" : "dark";
