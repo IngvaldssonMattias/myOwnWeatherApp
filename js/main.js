@@ -1,6 +1,6 @@
 import { getWeatherFromCity } from "./services/services.js";
 import { saveSearch } from "./utils/utils.js";
-import { renderHistory } from "./components/component.js";
+import { renderClock, renderHistory } from "./components/component.js";
 
 const searchButton = document.getElementById("field-button");
 const searchField = document.getElementById("search-field");
@@ -31,6 +31,7 @@ searchButton.addEventListener("click", async () => {
   // Spara stad + temperatur korrekt
   saveSearch(city, weather.temperature);
   renderHistory();
+  renderClock();
 });
 
 // Lyssna på toggle-switch
