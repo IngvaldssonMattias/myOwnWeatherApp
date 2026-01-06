@@ -29,18 +29,20 @@ export function initSearchUI(onCitySelect) {
       return;
     }
 
-    let cities = await fetchCities(value);
+    const cities = await fetchCities(value);
     if (!cities.length) {
       suggestions.innerHTML = "";
       suggestions.style.display = "none";
       return;
     }
 
-    // Visa max 4 städer men scrolla om fler finns
+    // Visa max 20 städer i listan, men endast 4 syns utan scroll
     suggestions.innerHTML = "";
-    cities.slice(0, 20).forEach(city => { // max 20 i listan för scroll
+    cities.slice(0, 20).forEach(city => {
       const li = document.createElement("li");
       li.textContent = city;
+      li.style.padding = "5px 10px"; // justera efter din styling
+      li.style.cursor = "pointer";
       li.addEventListener("click", () => {
         input.value = city;
         suggestions.style.display = "none";
@@ -53,14 +55,17 @@ export function initSearchUI(onCitySelect) {
     const inputRect = input.getBoundingClientRect();
     suggestions.style.width = `${inputRect.width}px`;
     suggestions.style.position = "absolute";
-    suggestions.style.top = `${input.offsetTop + input.offsetHeight + 2}px`; // lite mellanrum
+    suggestions.style.top = `${input.offsetTop + input.offsetHeight + 2}px`;
     suggestions.style.left = `${input.offsetLeft}px`;
-    suggestions.style.maxHeight = "200px"; // max höjd
-    suggestions.style.overflowY = "auto"; // scroll om fler
-    suggestions.style.display = "block";
-    suggestions.style.backgroundColor = "#fff"; // säkerställ bakgrund
+    suggestions.style.backgroundColor = "#fff";
     suggestions.style.border = "1px solid #ccc";
-    suggestions.style.zIndex = "1000"; // lägg över andra element
+    suggestions.style.zIndex = "1000";
+
+    // Bestäm maxhöjd baserat på 4 listpunkter
+    const liHeight = 30; // justera om dina <li> är högre/lägre
+    suggestions.style.maxHeight = `${liHeight * 4}px`;
+    suggestions.style.overflowY = "auto";
+    suggestions.style.display = "block";
   }
 
   // Koppla event
@@ -68,9 +73,9 @@ export function initSearchUI(onCitySelect) {
 
   // Dölj suggestions om input tappar fokus
   input.addEventListener("blur", () => {
-    setTimeout(() => { // timeout för att hinna klicka på förslag
+    setTimeout(() => {
       suggestions.style.display = "none";
-    }, 100);
+    }, 100); // timeout för att hinna klicka på förslag
   });
 
   // Visa suggestions om man fokuserar igen och redan har text
