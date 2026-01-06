@@ -1,6 +1,7 @@
 import { getWeatherFromCity } from "./services/services.js";
 import { saveSearch } from "./utils/utils.js";
 import { renderClock, renderHistory } from "./components/component.js";
+import { initSearchUI } from "./components/search.js";
 
 const searchButton = document.getElementById("field-button");
 const searchField = document.getElementById("search-field");
@@ -108,3 +109,18 @@ themeToggleButton.addEventListener("click", () => {
   }, 300);
 });
 
+initSearchUI(async (city) => {
+  const weather = await getWeatherFromCity(city);
+
+  currentTempCelsius = weather.temperature;
+  tempElement.textContent = currentTempCelsius;
+  unitElement.textContent = "°C";
+  document.getElementById("weather").textContent = weather.weather;
+  document.getElementById("location").textContent = weather.city;
+
+  saveSearch(city, weather.temperature);
+  renderHistory();
+  renderClock();
+
+  searchField.value = "";
+});
