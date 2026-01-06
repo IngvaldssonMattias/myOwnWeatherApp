@@ -8,6 +8,7 @@ const tempElement = document.getElementById("temp");
 const unitElement = document.getElementById("unit");
 const toggleSwitch = document.getElementById("unitSwitch");
 const themeToggleButton = document.querySelector(".themeToggle");
+const toggleScale = document.getElementById("toggle-scale");
 const root = document.documentElement;
 
 let currentTempCelsius = null; // sparar den temperatur som API:et returnerar i Celsius
@@ -54,16 +55,16 @@ searchField.addEventListener("blur", () => {
 
 // Lyssna på toggle-switch
 toggleSwitch.addEventListener("change", () => {
-  if (currentTempCelsius === null) return; // inga temperaturdata än
+  if (currentTempCelsius === null) return;
 
   if (toggleSwitch.checked) {
-    // Byt till Fahrenheit
     tempElement.textContent = celsiusToFahrenheit(currentTempCelsius);
     unitElement.textContent = "°F";
+    toggleScale.textContent = "Fahrenheit";
   } else {
-    // Byt tillbaka till Celsius
     tempElement.textContent = currentTempCelsius;
     unitElement.textContent = "°C";
+    toggleScale.textContent = "Celsius";
   }
 });
 
@@ -106,3 +107,4 @@ themeToggleButton.addEventListener("click", () => {
     themeToggleButton.classList.remove("rotate");
   }, 300);
 });
+
