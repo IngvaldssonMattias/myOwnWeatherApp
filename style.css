@@ -173,30 +173,6 @@ body {
   transform: translateX(clamp(20px, 5vw, 24px));
 }
 
-.sidebar-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.sidebar-header h3 {
-  margin: 0;
-  text-align: left;
-}
-
-#clearHistoryBtn {
-  background: none;
-  border: none;
-  padding: 0;
-  margin: 0;
-  line-height: 1;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  color: black;
-  outline: none;
-  transform: translateY(-1px);
-}
-
 /* Hero-bild */
 #heroImage {
   position: fixed;
@@ -376,7 +352,7 @@ body {
   box-shadow: 0 8px 20px var(--shadow-color);
 }
 
-.sidebar > h3 {
+.sidebar h3 {
   text-align: center;
   color: var(--text-color);
   margin-bottom: 10px;
