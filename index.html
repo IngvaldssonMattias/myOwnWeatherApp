@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
-    <script defer src="./js/main.js" type="module"></script>
     <title>Weather app</title>
 
     <!-- ICONS  -->
@@ -28,41 +27,40 @@
   </head>
 
   <body>
+    <!-- HERO BILD SOM BAKGRUND -->
+    <img id="heroImage" src="./images/image.webp" alt="Hero-bild" />
+
     <header class="site-header">
       <div class="header_brand">VAD BLIR DET FÖR VÄDER?</div>
 
       <div class="header_unit">
-    <button class="themeToggle">
-      <img src="./images/sun.svg" class="sun-icon" alt="Byt mellan ljus och mörk tema">
-    </button>
-    <span class="unit-label left">CELSIUS</span>
+        <button class="themeToggle">
+          <img
+            src="./images/sun.svg"
+            class="sun-icon"
+            alt="Byt mellan ljus och mörk tema"
+          />
+        </button>
+        <span class="unit-label left">CELSIUS</span>
 
-    <input
-      type="checkbox"
-      id="unitSwitch"
-      class="unit-switch_input"
-      aria-label="Byt mellan Celsius och Fahrenheit"
-    />
-    <label for="unitSwitch" class="unit-switch_track"></label>
+        <input
+          type="checkbox"
+          id="unitSwitch"
+          class="unit-switch_input"
+          aria-label="Byt mellan Celsius och Fahrenheit"
+        />
+        <label for="unitSwitch" class="unit-switch_track"></label>
 
-    <span class="unit-label right">FAHRENHEIT</span>
-  </div>
+        <span class="unit-label right">FAHRENHEIT</span>
+      </div>
     </header>
 
     <main class="main-layout">
       <!-- LEFT: Weather content -->
       <div id="weather-container">
-        <!-- START -- MAIN-CLOUD -->
+        <!-- START -- MAIN-Image -->
         <section class="main-cloud">
           <div class="cloud-container">
-            <div class="cloud">
-              <svg xmlns="http://www.w3.org/2000/svg" alt="molnikon" viewBox="0 0 640 640">
-                <path
-                  d="M32 400C32 479.5 96.5 544 176 544L480 544C550.7 544 608 486.7 608 416C608 364.4 577.5 319.9 533.5 299.7C540.2 286.6 544 271.7 544 256C544 203 501 160 448 160C430.3 160 413.8 164.8 399.6 173.1C375.5 127.3 327.4 96 272 96C192.5 96 128 160.5 128 240C128 248 128.7 255.9 129.9 263.5C73 282.7 32 336.6 32 400z"
-                  class="cloud-shape"
-                />
-              </svg>
-            </div>
             <!-- END -- MAIN-CLOUD -->
             <div class="search">
               <label for="search-field" class="visually-hidden">Sök stad</label>
@@ -71,7 +69,7 @@
                 type="text"
                 placeholder="Sök efter en stad"
               />
-               <ul id="suggestions"></ul>
+              <ul id="suggestions"></ul>
               <button id="field-button">
                 <i class="fa-solid fa-magnifying-glass"></i>Sök
               </button>
@@ -109,13 +107,6 @@
       </div>
     </main>
 
-    <!-- START -- DISPLAY TEXT -->
-    <section class="display-text">
-      <p id="display-text">
-        Idag klockan {time} i {stad} är det {väder} med en temperatur på {temp}
-        {unit}.
-      </p>
-    </section>
-    <!-- END -- DISPLAY TEXT -->
+    <script defer src="./js/main.js" type="module"></script>
   </body>
 </html>

@@ -41,7 +41,7 @@ export function initSearchUI(onCitySelect) {
     cities.slice(0, 20).forEach(city => {
       const li = document.createElement("li");
       li.textContent = city;
-      li.style.padding = "5px 10px"; // justera efter din styling
+      li.style.padding = "5px 10px"; 
       li.style.cursor = "pointer";
       li.addEventListener("click", () => {
         input.value = city;
@@ -57,12 +57,10 @@ export function initSearchUI(onCitySelect) {
     suggestions.style.position = "absolute";
     suggestions.style.top = `${input.offsetTop + input.offsetHeight + 2}px`;
     suggestions.style.left = `${input.offsetLeft}px`;
-    suggestions.style.backgroundColor = "#fff";
-    suggestions.style.border = "1px solid #ccc";
     suggestions.style.zIndex = "1000";
 
     // Bestäm maxhöjd baserat på 4 listpunkter
-    const liHeight = 30; // justera om dina <li> är högre/lägre
+    const liHeight = 30; 
     suggestions.style.maxHeight = `${liHeight * 4}px`;
     suggestions.style.overflowY = "auto";
     suggestions.style.display = "block";
@@ -75,7 +73,7 @@ export function initSearchUI(onCitySelect) {
   input.addEventListener("blur", () => {
     setTimeout(() => {
       suggestions.style.display = "none";
-    }, 100); // timeout för att hinna klicka på förslag
+    }, 100); 
   });
 
   // Visa suggestions om man fokuserar igen och redan har text
