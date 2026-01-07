@@ -102,9 +102,14 @@
       </div>
 
       <!-- RIGHT: Sidebar -->
-      <div id="historySidebar" class="sidebar">
-        <h3>Sökningar</h3>
-      </div>
+<div id="historySidebar" class="sidebar">
+  <div class="sidebar-header">
+    <h3>Sökningar</h3>
+    <button id="clearHistoryBtn" aria-label="Rensa sökhistorik">✖</button>
+  </div>
+
+  <ul id="historyList"></ul>
+</div>
     </main>
 
     <script defer src="./js/main.js" type="module"></script>
