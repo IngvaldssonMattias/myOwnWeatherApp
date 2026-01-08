@@ -35,7 +35,7 @@ Font Awesome
 Google Fonts (Cherry Bomb One, Inter)
 
 
-### Colors
+## Colors
 
 | Lightmode | Hex Code 
 |------------|----------|
