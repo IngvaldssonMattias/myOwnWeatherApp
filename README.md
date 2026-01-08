@@ -21,13 +21,13 @@ Shows location and current time.
 History of previous searches (sidebar).
 
 
-## Teknologier
+## Technologies
 
 HTML5 & CSS3
 
 JavaScript (ES6-moduler)
 
-## Ikoner
+## Icons
 Remix Icon
 
 Font Awesome
