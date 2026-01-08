@@ -23,7 +23,9 @@ History of previous searches (sidebar).
 
 ## Technologies
 
-HTML5 & CSS3
+HTML5
+
+CSS3
 
 JavaScript (ES6-moduler)
 
@@ -39,24 +41,28 @@ Google Fonts (Cherry Bomb One, Inter)
 
 | Lightmode | Hex Code 
 |------------|----------|
-| --background  | `#1f8dbd` |
-| --light-grey  | `#e2e2e2` |
-| --grey        | `#f1f1f1` |
-| --text-color  | `#0b3445` |
-| --icon-color  | `#0b3445` |
-| --muted-text  | `#1f4f63` |
-| --border-color| `rgba(3, 3, 3, 0.8)` |
-| --shadow-color| `rgba(0, 0, 0, 0.2)` |
+|  Ocean Blue     | `#1f8dbd` |
+|  Alabaster Grey | `#e2e2e2` |
+|  Platinum       | `#f1f1f1` |
+|  Jet Black      | `#0b3445` |
+|  Jet Black      | `#0b3445` |
+|  Dark Teal      | `#1f4f63` |
+|  Black          | `rgba(3, 3, 3, 0.8)` |
+|  Black          | `rgba(0, 0, 0, 0.2)` |
+
+![color palette for the page](./images/colorpalette.png)
 
 | Darkmode | Hex Code |
 |------------|----------|
-| --background  | `#121212` |
-| --light-grey  | `rgba(30, 30, 30, 0.9)` |
-| --grey        | `#2a2a2a` |
-| --text-color  | `#e6e6e6` |
-| --icon-color  | `#b8b8b8` |
-| --muted-text  | `#056a8f` |
-| --border-color| `rgba(60, 60, 60, 0.8)` |
-| --shadow-color| `rgba(0, 0, 0, 0.6)` |
+|  Onyx          | `#121212` |
+|  Carbon Black  | `rgba(30, 30, 30, 0.9)` |
+|  Graphite      | `#2a2a2a` |
+|  Alabaster Grey| `#e6e6e6` |
+|  Silver        | `#b8b8b8` |
+|  Cerulean      | `#056a8f` |
+|  Gun metal     | `rgba(60, 60, 60, 0.8)` |
+|  Black         | `rgba(0, 0, 0, 0.6)` |
+
+![color palette for the page](./images/colorpalette.png)
 
 
