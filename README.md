@@ -9,8 +9,7 @@
 
 ### Colors
 
-Lightmode
-| Color Name | Hex Code 
+| Lightmode | Hex Code 
 |------------|----------|
 | --background  | `#1f8dbd` |
 | --light-grey  | `#e2e2e2` |
@@ -21,8 +20,8 @@ Lightmode
 | --border-color| `rgba(3, 3, 3, 0.8)` |
 | --shadow-color| `rgba(0, 0, 0, 0.2)` |
 
-| Color Name | Hex Code | Darkmode |
-|------------|----------|----------|
+| Darkmode | Hex Code |
+|------------|----------|
 | --background  | `#121212` |
 | --light-grey  | `rgba(30, 30, 30, 0.9)` |
 | --grey        | `#2a2a2a` |
