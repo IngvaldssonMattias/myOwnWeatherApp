@@ -27,7 +27,7 @@ HTML5
 
 CSS3
 
-JavaScript (ES6-moduler)
+JavaScript
 
 ## Icons
 Remix Icon
