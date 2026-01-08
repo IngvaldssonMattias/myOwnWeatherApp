@@ -5,7 +5,8 @@ WeatherApp 🌦️
 
 A simple and stylish weather app that displays the current temperature, weather condition, and location information. Search for any city and switch between Celsius and Fahrenheit.
 
-Features
+
+<u>Features</u>
 
 Display the current temperature and weather condition (e.g., cloudy, sunny, rain).
 
