@@ -4,6 +4,7 @@ import { renderClock, renderHistory } from "./components/component.js";
 import { initSearchUI } from "./components/search.js";
 import { celsiusToFahrenheit } from "./utils/temperature.js";
 import { searchWeather } from "./components/weatherSearch.js";
+import { initTemperatureToggle } from "./components/temperatureToggle.js";
 
 const searchButton = document.getElementById("field-button");
 const searchField = document.getElementById("search-field");
@@ -15,8 +16,10 @@ const toggleScale = document.getElementById("toggle-scale");
 const root = document.documentElement;
 
 let currentTempCelsius = null; // sparar den temperatur som API:et returnerar i Celsius
+initTemperatureToggle(toggleSwitch, tempElement, unitElement, toggleScale, () => currentTempCelsius);
 
-searchWeather(searchButton, searchField, tempElement, unitElement);
+// uppdaterar currentTempCelsius;
+searchWeather(searchButton, searchField, tempElement, unitElement, (temp) => currentTempCelsius = temp);
 
 // Ta bort placeholder när man fokuserar i fältet
 searchField.addEventListener("focus", () => {
@@ -30,20 +33,6 @@ searchField.addEventListener("blur", () => {
   }
 });
 
-// Lyssna på toggle-switch
-toggleSwitch.addEventListener("change", () => {
-  if (currentTempCelsius === null) return;
-
-  if (toggleSwitch.checked) {
-    tempElement.textContent = celsiusToFahrenheit(currentTempCelsius);
-    unitElement.textContent = "°F";
-    toggleScale.textContent = "Fahrenheit";
-  } else {
-    tempElement.textContent = currentTempCelsius;
-    unitElement.textContent = "°C";
-    toggleScale.textContent = "Celsius";
-  }
-});
 
 const savedTheme = localStorage.getItem("preferred-theme");
 
