@@ -44,7 +44,7 @@ body {
 }
 
 /* Weather-boxes Dark Mode */
-[data-theme="dark"] #weather-container .weather-boxes{
+[data-theme="dark"] #weather-container .weather-boxes {
   background: rgba(20, 20, 20, 0.3); /* mörk frostad glas-effekt */
   border: 1px solid rgba(60, 60, 60, 0.3);
   color: var(--text-color);
@@ -319,7 +319,7 @@ body {
 /* Sidebar med glass-effekt som weather-boxes */
 .sidebar {
   position: absolute;
-  top: 50px;
+  top: 62px;
   right: 20px;
   width: 250px;
   max-width: 90%;

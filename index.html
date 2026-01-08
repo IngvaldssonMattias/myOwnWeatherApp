@@ -6,18 +6,17 @@
     <link rel="stylesheet" href="./style.css" />
     <title>Weather app</title>
 
-    <!-- ICONS  -->
-    <!-- remix icons -->
+    <!-- ICONS -->
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"
       rel="stylesheet"
     />
-    <!-- font awesome -->
     <script
       src="https://kit.fontawesome.com/c9a7782e7f.js"
       crossorigin="anonymous"
     ></script>
-    <!-- google font -->
+
+    <!-- GOOGLE FONT -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -27,20 +26,22 @@
   </head>
 
   <body>
-    <!-- HERO BILD SOM BAKGRUND -->
-    <img id="heroImage" src="./images/image.webp" alt="Hero-bild" />
+    <!-- HERO BAKGRUND -->
+    <img id="heroImage" src="./images/image.webp" alt="" aria-hidden="true" />
 
     <header class="site-header">
-      <div class="header_brand">VAD BLIR DET FÖR VÄDER?</div>
+      <h1 class="header_brand">VAD BLIR DET FÖR VÄDER?</h1>
 
       <div class="header_unit">
-        <button class="themeToggle">
+        <button class="themeToggle" aria-label="Byt tema">
           <img
             src="./images/sun.svg"
             class="sun-icon"
-            alt="Byt mellan ljus och mörk tema"
+            alt=""
+            aria-hidden="true"
           />
         </button>
+
         <span class="unit-label left">CELSIUS</span>
 
         <input
@@ -56,55 +57,54 @@
     </header>
 
     <main class="main-layout">
-      <!-- LEFT: Weather content -->
-      <div id="weather-container">
-        <!-- START -- MAIN-Image -->
+      <!-- WEATHER CONTENT -->
+      <section id="weather-container">
         <section class="main-cloud">
           <div class="cloud-container">
-            <!-- END -- MAIN-CLOUD -->
-            <div class="search">
-              <label for="search-field" class="visually-hidden">Sök stad</label>
+            <form class="search" role="search">
+              <label for="search-field" class="visually-hidden">
+                Sök stad
+              </label>
               <input
                 id="search-field"
                 type="text"
                 placeholder="Sök efter en stad"
               />
               <ul id="suggestions"></ul>
-              <button id="field-button">
-                <i class="fa-solid fa-magnifying-glass"></i>Sök
+              <button id="field-button" type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                Sök
               </button>
-            </div>
+            </form>
           </div>
         </section>
-        <!-- BOX 1 -->
-        <div class="weather-boxes">
-          <p class="underline">GRADER</p>
+
+        <section class="weather-boxes">
+          <h2 class="underline">GRADER</h2>
           <p class="biggerfont">
             <span id="temp">6</span>
             <span id="unit">°C</span>
           </p>
           <p id="toggle-scale">Celsius</p>
-        </div>
+        </section>
 
-        <!-- BOX 2 -->
-        <div class="weather-boxes">
-          <p class="underline">VÄDER</p>
+        <section class="weather-boxes">
+          <h2 class="underline">VÄDER</h2>
           <span id="icon"></span>
           <p><span id="weather">Molnigt</span></p>
-        </div>
+        </section>
 
-        <!-- BOX 3 -->
-        <div class="weather-boxes">
-          <p class="underline">PLATS & TID</p>
-          <span class="biggerfont" id="time">TIME</span>
+        <section class="weather-boxes">
+          <h2 class="underline">PLATS & TID</h2>
+          <time class="biggerfont" id="time">TIME</time>
           <p id="location">Linköping</p>
-        </div>
-            </div>
+        </section>
+      </section>
 
-      <!-- RIGHT: Sidebar -->
-      <div id="historySidebar" class="sidebar">
+      <!-- SIDEBAR -->
+      <aside id="historySidebar" class="sidebar">
         <h3>Sökningar</h3>
-
+      </aside>
     </main>
 
     <script defer src="./js/main.js" type="module"></script>
