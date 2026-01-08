@@ -1,12 +1,12 @@
 # My own weather app!
 Click [HERE](https://ingvaldssonmattias.github.io/myOwnWeatherApp/) to view the page!
 
-WeatherApp 🌦️
+## WeatherApp 🌦️
 
 A simple and stylish weather app that displays the current temperature, weather condition, and location information. Search for any city and switch between Celsius and Fahrenheit.
 
 
-<u>Features</u>
+## Features
 
 Display the current temperature and weather condition (e.g., cloudy, sunny, rain).
 
@@ -20,15 +20,16 @@ Shows location and current time.
 
 History of previous searches (sidebar).
 
-Teknologier
+
+## Teknologier
 
 HTML5 & CSS3
 
 JavaScript (ES6-moduler)
 
-Ikoner: Remix Icons
- och Font Awesome
-
+## Ikoner
+Remix Icon
+Font Awesome
 Google Fonts (Cherry Bomb One, Inter)
 
 
