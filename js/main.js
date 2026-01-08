@@ -3,6 +3,7 @@ import { saveSearch } from "./utils/utils.js";
 import { renderClock, renderHistory } from "./components/component.js";
 import { initSearchUI } from "./components/search.js";
 import { celsiusToFahrenheit } from "./utils/temperature.js";
+import { searchWeather } from "./components/weatherSearch.js";
 
 const searchButton = document.getElementById("field-button");
 const searchField = document.getElementById("search-field");
@@ -15,30 +16,7 @@ const root = document.documentElement;
 
 let currentTempCelsius = null; // sparar den temperatur som API:et returnerar i Celsius
 
-
-
-// När man klickar på sökknappen
-searchButton.addEventListener("click", async () => {
-  const city = searchField.value.trim();
-  if (!city) return; // gör inget om fältet är tomt
-
-  const weather = await getWeatherFromCity(city);
-
-  currentTempCelsius = weather.temperature;
-  tempElement.textContent = currentTempCelsius;
-  unitElement.textContent = "°C";
-  document.getElementById("weather").textContent = weather.weather;
-  document.getElementById("location").textContent = weather.city;
-
-  // Spara stad + temperatur korrekt
-  saveSearch(city, weather.temperature);
-  renderHistory();
-  renderClock();
-
-  // Rensa inputfält och återställ placeholder
-  searchField.value = "";
-  searchField.placeholder = "Sök efter en stad";
-});
+searchWeather(searchButton, searchField, tempElement, unitElement);
 
 // Ta bort placeholder när man fokuserar i fältet
 searchField.addEventListener("focus", () => {
