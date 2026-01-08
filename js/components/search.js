@@ -11,7 +11,7 @@ export function initSearchUI(onCitySelect) {
       const response = await fetch(createCordinatesURL(query));
       if (!response.ok) return [];
       const data = await response.json();
-      return data.results ? data.results.map(r => r.name) : [];
+      return data.results ? data.results.map((r) => r.name) : [];
     } catch (err) {
       console.error("fetchCities error:", err);
       return [];
@@ -38,10 +38,10 @@ export function initSearchUI(onCitySelect) {
 
     // Visa max 20 städer i listan, men endast 4 syns utan scroll
     suggestions.innerHTML = "";
-    cities.slice(0, 20).forEach(city => {
+    cities.slice(0, 20).forEach((city) => {
       const li = document.createElement("li");
       li.textContent = city;
-      li.style.padding = "5px 10px"; 
+      li.style.padding = "5px 10px";
       li.style.cursor = "pointer";
       li.addEventListener("click", () => {
         input.value = city;
@@ -60,7 +60,7 @@ export function initSearchUI(onCitySelect) {
     suggestions.style.zIndex = "1000";
 
     // Bestäm maxhöjd baserat på 4 listpunkter
-    const liHeight = 30; 
+    const liHeight = 30;
     suggestions.style.maxHeight = `${liHeight * 4}px`;
     suggestions.style.overflowY = "auto";
     suggestions.style.display = "block";
@@ -73,7 +73,7 @@ export function initSearchUI(onCitySelect) {
   input.addEventListener("blur", () => {
     setTimeout(() => {
       suggestions.style.display = "none";
-    }, 100); 
+    }, 100);
   });
 
   // Visa suggestions om man fokuserar igen och redan har text

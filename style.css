@@ -454,7 +454,7 @@ body,
     max-width: 350px;
     max-height: 60vh;
     overflow-y: auto;
-     -webkit-overflow-scrolling: touch; /* smidig scroll på iOS */
+    -webkit-overflow-scrolling: touch; /* smidig scroll på iOS */
   }
 
   .unit-switch_track {

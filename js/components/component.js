@@ -24,15 +24,14 @@ export function renderHistory() {
   });
 }
 
-export function renderClock(){
+export function renderClock() {
   const time = document.getElementById("time");
-  if(!time) return;
+  if (!time) return;
 
-  function updateClock(){
+  function updateClock() {
     const now = new Date();
     const hours = now.getHours().toString().padStart(2, "0");
     const minutes = now.getMinutes().toString().padStart(2, "0");
-    
 
     time.textContent = `${hours}:${minutes}`;
   }
