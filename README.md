@@ -50,7 +50,7 @@ Google Fonts (Cherry Bomb One, Inter)
 |  Black          | `rgba(3, 3, 3, 0.8)` |
 |  Black          | `rgba(0, 0, 0, 0.2)` |
 
-![color palette for the page](./images/colorpalette.png)
+![color palette for the page](./images/Lightmode.png)
 
 | Darkmode | Hex Code |
 |------------|----------|
@@ -63,6 +63,6 @@ Google Fonts (Cherry Bomb One, Inter)
 |  Gun metal     | `rgba(60, 60, 60, 0.8)` |
 |  Black         | `rgba(0, 0, 0, 0.6)` |
 
-![color palette for the page](./images/colorpalette.png)
+![color palette for the page](./images/Darkmode.png)
 
 
