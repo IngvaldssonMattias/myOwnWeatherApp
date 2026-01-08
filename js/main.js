@@ -5,6 +5,7 @@ import { initSearchUI } from "./components/search.js";
 import { celsiusToFahrenheit } from "./utils/temperature.js";
 import { searchWeather } from "./components/weatherSearch.js";
 import { initTemperatureToggle } from "./components/temperatureToggle.js";
+import { initPlaceholder } from "./components/searchPlaceholder.js";
 
 const searchButton = document.getElementById("field-button");
 const searchField = document.getElementById("search-field");
@@ -20,18 +21,7 @@ initTemperatureToggle(toggleSwitch, tempElement, unitElement, toggleScale, () =>
 
 // uppdaterar currentTempCelsius;
 searchWeather(searchButton, searchField, tempElement, unitElement, (temp) => currentTempCelsius = temp);
-
-// Ta bort placeholder när man fokuserar i fältet
-searchField.addEventListener("focus", () => {
-  searchField.placeholder = "";
-});
-
-// Återställ placeholder om fältet är tomt när man lämnar fältet
-searchField.addEventListener("blur", () => {
-  if (searchField.value.trim() === "") {
-    searchField.placeholder = "Sök efter en stad";
-  }
-});
+initPlaceholder(searchField);
 
 
 const savedTheme = localStorage.getItem("preferred-theme");
