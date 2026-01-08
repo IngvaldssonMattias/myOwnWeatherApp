@@ -29,7 +29,9 @@ JavaScript (ES6-moduler)
 
 ## Ikoner
 Remix Icon
+
 Font Awesome
+
 Google Fonts (Cherry Bomb One, Inter)
 
 
