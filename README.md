@@ -10,7 +10,7 @@
 ### Colors
 
 | Color Name | Hex Code | Lightmode |
-|------------|----------|---------- |
+|------------|----------|           |
 | --background  | `#1f8dbd` |
 | --light-grey  | `#e2e2e2` |
 | --grey        | `#f1f1f1` |
