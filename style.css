@@ -386,7 +386,7 @@ body,
 
 /* ----- Media Queries ----- */
 
-/* Små skärmar ≤480px */
+/* Small screens ≤480px */
 @media (max-width: 480px) {
   body {
     padding-top: 10px;
