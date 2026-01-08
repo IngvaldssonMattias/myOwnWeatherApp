@@ -6,6 +6,7 @@ import { celsiusToFahrenheit } from "./utils/temperature.js";
 import { searchWeather } from "./components/weatherSearch.js";
 import { initTemperatureToggle } from "./components/temperatureToggle.js";
 import { initPlaceholder } from "./components/searchPlaceholder.js";
+import { initThemeToggle } from "./components/themeToggle.js";
 
 const searchButton = document.getElementById("field-button");
 const searchField = document.getElementById("search-field");
@@ -23,46 +24,9 @@ initTemperatureToggle(toggleSwitch, tempElement, unitElement, toggleScale, () =>
 searchWeather(searchButton, searchField, tempElement, unitElement, (temp) => currentTempCelsius = temp);
 initPlaceholder(searchField);
 
+initThemeToggle(themeToggleButton, root)
 
-const savedTheme = localStorage.getItem("preferred-theme");
 
-if (savedTheme === "dark") {
-  root.setAttribute("data-theme", "dark");
-} else {
-  root.removeAttribute("data-theme");
-}
-
-updateButtonLabel();
-
-function isDarkMode() {
-  return root.getAttribute("data-theme") === "dark";
-}
-
-function updateButtonLabel() {
-  if (isDarkMode()) {
-    themeToggleButton.textContent = " 🔆 ";
-  } else {
-    themeToggleButton.textContent = " 🌙 ";
-  }
-}
-
-themeToggleButton.addEventListener("click", () => {
-  const nextTheme = isDarkMode() ? "light" : "dark";
-
-  if (nextTheme === "dark") {
-    root.setAttribute("data-theme", "dark");
-  } else {
-    root.removeAttribute("data-theme");
-  }
-
-  updateButtonLabel();
-  localStorage.setItem("preferred-theme", nextTheme);
-
-  themeToggleButton.classList.add("rotate");
-  setTimeout(() => {
-    themeToggleButton.classList.remove("rotate");
-  }, 300);
-});
 
 initSearchUI(async (city) => {
   const weather = await getWeatherFromCity(city);
