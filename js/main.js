@@ -2,6 +2,7 @@ import { getWeatherFromCity } from "./services/services.js";
 import { saveSearch } from "./utils/utils.js";
 import { renderClock, renderHistory } from "./components/component.js";
 import { initSearchUI } from "./components/search.js";
+import { celsiusToFahrenheit } from "./utils/temperature.js";
 
 const searchButton = document.getElementById("field-button");
 const searchField = document.getElementById("search-field");
@@ -14,10 +15,7 @@ const root = document.documentElement;
 
 let currentTempCelsius = null; // sparar den temperatur som API:et returnerar i Celsius
 
-// Funktion för Celsius → Fahrenheit
-function celsiusToFahrenheit(celsius) {
-  return ((celsius * 9) / 5 + 32).toFixed(1);
-}
+
 
 // När man klickar på sökknappen
 searchButton.addEventListener("click", async () => {
