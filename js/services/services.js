@@ -1,5 +1,5 @@
-import { createCordinatesURL, createTemperatureURL } from "./url.js"; // importerar funktionerna från url.js
-import { weatherCodes } from "./weatherCodes.js"; // importerat väderkoderna från weatherCodes.js
+import { createCordinatesURL, createTemperatureURL } from "./url.js"; 
+import { weatherCodes } from "./weatherCodes.js"; 
 
 export async function getWeatherFromCity(city) {
   // Exporterar en asynkron funktion som hämtar väderdata för en specifik stad
