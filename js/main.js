@@ -18,15 +18,25 @@ const toggleScale = document.getElementById("toggle-scale");
 const root = document.documentElement;
 
 let currentTempCelsius = null; // sparar den temperatur som API:et returnerar i Celsius
-initTemperatureToggle(toggleSwitch, tempElement, unitElement, toggleScale, () => currentTempCelsius);
+initTemperatureToggle(
+  toggleSwitch,
+  tempElement,
+  unitElement,
+  toggleScale,
+  () => currentTempCelsius
+);
 
 // uppdaterar currentTempCelsius;
-searchWeather(searchButton, searchField, tempElement, unitElement, (temp) => currentTempCelsius = temp);
+searchWeather(
+  searchButton,
+  searchField,
+  tempElement,
+  unitElement,
+  (temp) => (currentTempCelsius = temp)
+);
 initPlaceholder(searchField);
 
-initThemeToggle(themeToggleButton, root)
-
-
+initThemeToggle(themeToggleButton, root);
 
 initSearchUI(async (city) => {
   const weather = await getWeatherFromCity(city);

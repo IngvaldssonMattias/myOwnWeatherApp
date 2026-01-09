@@ -1,4 +1,3 @@
-// components/themeToggle.js
 export function initThemeToggle(themeToggleButton, root) {
   // Hämta sparat tema från localStorage
   const savedTheme = localStorage.getItem("preferred-theme");

@@ -4,7 +4,12 @@ import { renderClock, renderHistory } from "../components/component.js";
 
 let currentTempCelsius = null; // sparar den temperatur som API:et returnerar i Celsius
 
-export function searchWeather(searchButton, searchField, tempElement, unitElement) {
+export function searchWeather(
+  searchButton,
+  searchField,
+  tempElement,
+  unitElement
+) {
   searchButton.addEventListener("click", async () => {
     const city = searchField.value.trim();
     if (!city) return;
