@@ -51,5 +51,5 @@ initSearchUI(async (city) => {
   renderHistory();
   renderClock();
 
-  searchField.value = "Sök efter en stad";
+  searchField.value = "";
 });
