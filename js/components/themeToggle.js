@@ -16,7 +16,7 @@ export function initThemeToggle(themeToggleButton, root) {
 
   // Uppdatera knappens text beroende på tema
   function updateButtonLabel() {
-    if (isDarkMode()) {
+    if (!isDarkMode()) {
       themeToggleButton.textContent = " 🔆 ";
     } else {
       themeToggleButton.textContent = " 🌙 ";
